@@ -3,7 +3,7 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { ListPage } from '../pages/list/list';
 import { HololensPage } from '../pages/hololens/hololens';
-import { ContactPage } from '../pages/contact/contact';
+import { AboutPage } from '../pages/about/about';
 
 import { TabsPage } from '../pages/tabs/tabs';
 
@@ -12,7 +12,7 @@ import { TabsPage } from '../pages/tabs/tabs';
     MyApp,
     ListPage,
     HololensPage,
-    ContactPage,
+    AboutPage,
     TabsPage
   ],
   imports: [
@@ -23,7 +23,7 @@ import { TabsPage } from '../pages/tabs/tabs';
     MyApp,
     ListPage,
     HololensPage,
-    ContactPage,
+    AboutPage,
     TabsPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
