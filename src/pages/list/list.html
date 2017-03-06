@@ -12,8 +12,10 @@
     <button ion-item 
             text-wrap
             detail-none 
-            *ngFor="let item of items | async"
-            (click)="onClick($event, item)">
+            *ngFor="let item of items | async">
+      <ion-checkbox item-right
+                    [checked]="item.selected"
+                    (ionChange)="onClick($event, item)"></ion-checkbox>
       <ion-avatar item-left>
         <img [src]="item.image">
       </ion-avatar>
