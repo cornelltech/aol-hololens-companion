@@ -10,13 +10,13 @@
 
   <ion-list>
 
-    <ion-item>
-      <ion-checkbox checked="false"></ion-checkbox>
+    <ion-item *ngFor="let item of items | async">
+      <ion-checkbox checked="{{ item.selected }}"></ion-checkbox>
       <ion-avatar item-left>
         <img src="https://images4.jetcdn.net/md5/6a83091f9b3fefa1b72e1a33844a9ea4.100">
       </ion-avatar>
       <ion-label>
-        <h2>Quaker Instant Oatmeal, Strawberries & Cream, 1.23 Oz, 10 Ct</h2>
+        <h2>{{ item.name }}</h2>
       </ion-label>
     </ion-item>
 

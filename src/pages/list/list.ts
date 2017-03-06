@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import {AngularFire, FirebaseListObservable} from 'angularfire2';
+
 
 import { NavController } from 'ionic-angular';
 
@@ -8,8 +10,11 @@ import { NavController } from 'ionic-angular';
 })
 export class ListPage {
 
-  constructor(public navCtrl: NavController) {
+  items: FirebaseListObservable<any[]>;
 
+  constructor(public navCtrl: NavController,
+              private af: AngularFire) {
+    this.items = af.database.list('/');
   }
 
 }
