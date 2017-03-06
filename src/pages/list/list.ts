@@ -17,4 +17,10 @@ export class ListPage {
     this.items = af.database.list('/');
   }
 
+  onClick(event:any, item) {
+    this.items.update(item, Object.assign({}, item, { 
+      selected: !item.selected 
+    }));
+  }
+
 }
