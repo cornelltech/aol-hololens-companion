@@ -1,26 +1,53 @@
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/switchMap';
+
+import { OnInit }               from '@angular/core';
+import { Http, Headers }        from '@angular/http';
+import { Observable }           from 'rxjs/Observable';
+
 import { Component } from '@angular/core';
-import {AngularFire, FirebaseListObservable} from 'angularfire2';
 
 
 import { NavController } from 'ionic-angular';
+
+
+export interface DataObj {
+  id: number;
+  product: string;
+  selected: boolean;
+}
 
 @Component({
   selector: 'page-list',
   templateUrl: 'list.html'
 })
-export class ListPage {
-
-  items: FirebaseListObservable<any[]>;
+export class ListPage implements OnInit {
+  API_ROUTE:string = 'https://4e416898.ngrok.io';
+  items: Observable<DataObj[]>;
 
   constructor(public navCtrl: NavController,
-              private af: AngularFire) {
-    this.items = af.database.list('/');
+              private http: Http,) { }
+
+  ngOnInit(){
+    this.items = this.fetchData();
   }
 
   onClick(event:any, item) {
-    this.items.update(item, Object.assign({}, item, { 
-      selected: !item.selected 
-    }));
+    this.items.subscribe((objs) => {
+      objs.map((obj) => {
+        if( obj.id === item.id) obj.selected = !obj.selected
+      });
+      this.pushData(objs).subscribe((r) => {});
+    })
+  }
+
+  fetchData():Observable<DataObj[]> {
+    return this.http.get(`${this.API_ROUTE}/ping`)
+                    .map(res => res.json());
+  }
+  pushData(data:DataObj[]):Observable<DataObj[]> {
+    return this.http.put(`${this.API_ROUTE}/ping`, data)
+                    .map(res => res.json());
   }
 
 }
