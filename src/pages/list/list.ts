@@ -22,7 +22,7 @@ export interface DataObj {
   templateUrl: 'list.html'
 })
 export class ListPage implements OnInit {
-  API_ROUTE:string = 'https://4e416898.ngrok.io';
+  API_ROUTE:string = 'http://ec2-52-3-223-71.compute-1.amazonaws.com:5000';
   items: Observable<DataObj[]>;
 
   constructor(public navCtrl: NavController,
