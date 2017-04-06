@@ -43,7 +43,8 @@ export class ListPage implements OnInit {
 
   fetchData():Observable<DataObj[]> {
     return this.http.get(`${this.API_ROUTE}/ping`)
-                    .map(res => res.json());
+                    .map(res => res.json())
+                    .map(data => data["results"]);
   }
   pushData(data:DataObj[]):Observable<DataObj[]> {
     return this.http.put(`${this.API_ROUTE}/ping`, data)
