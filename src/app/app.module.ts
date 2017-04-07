@@ -9,17 +9,18 @@ import { AboutPage } from '../pages/about/about';
 
 import { TabsPage } from '../pages/tabs/tabs';
 
-import { FIREBASE_KEY } from './keys';
+// import { FIREBASE_KEY } from './keys';
 
 // Must export the config
-export const firebaseConfig = {
+export const firebaseConfig = { };
+/*
   apiKey: FIREBASE_KEY,
   authDomain: 'aolardemo.firebaseapp.com',
   databaseURL: 'https://aolardemo.firebaseio.com',
   storageBucket: 'aolardemo.appspot.com',
   messagingSenderId: '983011821084'
 };
-
+*/
 
 @NgModule({
   declarations: [
@@ -31,7 +32,7 @@ export const firebaseConfig = {
   ],
   imports: [
     IonicModule.forRoot(MyApp),
-    AngularFireModule.initializeApp(firebaseConfig)
+    // AngularFireModule.initializeApp(firebaseConfig)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
