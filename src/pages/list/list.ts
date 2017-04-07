@@ -2,7 +2,7 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/switchMap';
 
 import { OnInit }               from '@angular/core';
-import { Http, Headers }        from '@angular/http';
+import { Http }                 from '@angular/http';
 import { Observable }           from 'rxjs/Observable';
 
 import { Component } from '@angular/core';
@@ -14,6 +14,7 @@ import { NavController } from 'ionic-angular';
 export interface DataObj {
   id: number;
   product: string;
+  image: string;
   selected: boolean;
 }
 

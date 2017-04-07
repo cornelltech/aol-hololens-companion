@@ -15,7 +15,7 @@
             detail-none 
             *ngFor="let item of items | async">
       <ion-avatar item-left>
-        <img src="assets/img/135713.png">
+        <img src="{{ item.image || 'assets/img/135713.png' }}">
       </ion-avatar>
       <ion-checkbox item-right
                     [checked]="item.selected"
