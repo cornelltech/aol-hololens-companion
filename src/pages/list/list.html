@@ -9,15 +9,19 @@
 <ion-content>
 
   <ion-list>
+    
     <button ion-item 
             text-wrap
             detail-none 
             *ngFor="let item of items | async">
+      <ion-avatar item-left>
+        <img src="assets/img/135713.png">
+      </ion-avatar>
       <ion-checkbox item-right
                     [checked]="item.selected"
                     (ionChange)="onClick($event, item)"></ion-checkbox>
       <ion-label>
-        <ion-img src="assets/img/135713.png"></ion-img>&nbsp;<h2>{{ item.product }}</h2>
+        <h2>{{ item.product }}</h2>
       </ion-label>
     </button>
 
